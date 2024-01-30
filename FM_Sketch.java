@@ -1,6 +1,7 @@
 import java.util.Map;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class FM_Sketch {
     private static final double PHI = 0.77351D;
@@ -41,6 +42,13 @@ public class FM_Sketch {
         do {
             n = (int) (Integer.MAX_VALUE * Math.random());
         } while (n % 2 ==0 || contains(map, m, n));
+
+        Collection<Integer> valueCollection = map.get(m);
+        if (valueCollection == null) {
+            valueCollection = new HashSet<Integer>();
+            map.put(m, valueCollection);
+        }
+        valueCollection.add(n);
 
         return new HashFunction(3, 2, 1);
     }
