@@ -46,7 +46,8 @@ public class FM_Sketch {
     }
 
     private static boolean contains(Map<Integer, Collection<Integer>> map, int m, int n) {
-        return false;
+        Collection<Integer> valueList = map.get(m);
+        return (valueList != null) && (valueList.contains(n));
     }
 
     public static void main(String[] args) {
