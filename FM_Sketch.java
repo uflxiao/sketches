@@ -50,12 +50,36 @@ public class FM_Sketch {
         }
         valueCollection.add(n);
 
-        return new HashFunction(3, 2, 1);
+        return new HashFunction(m, n, l);
     }
 
     private static boolean contains(Map<Integer, Collection<Integer>> map, int m, int n) {
         Collection<Integer> valueList = map.get(m);
         return (valueList != null) && (valueList.contains(n));
+    }
+
+    public boolean offer(Object o) {
+        boolean affected = false;
+
+        for (int i=0; i<num_groups; i++) {
+            for (int j=0; j<numHash; j++) {
+                HashFunction f = hashes[i][j];
+                long v = f.hash(o)
+                int index = rho(v);
+            }
+        }
+    }
+
+    public long cardinality() {
+
+    }
+
+    private int rho(long v) {
+        
+    }
+
+    private static int getFirstZeroBit(boolean[] b) {
+        
     }
 
     public static void main(String[] args) {
